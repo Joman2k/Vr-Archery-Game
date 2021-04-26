@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Bow : MonoBehaviour
+using UnityEngine.XR.Interaction.Toolkit;
+public class Bow : XRGrabInteractable
 {
     // Start is called before the first frame update
     void Start()
