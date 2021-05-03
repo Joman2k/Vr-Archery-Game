@@ -4,15 +4,27 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 public class Bow : XRGrabInteractable
 {
-    // Start is called before the first frame update
-    void Start()
+    private ArrowNotchpoint NotchonBow = null;
+    //Bow is ready when picked up
+    protected override void Awake()
     {
-        
+        base.Awake();
+        NotchonBow = GetComponentInChildren<ArrowNotchpoint>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   //protected override void  OnEnable()
+   // {
+   //     base.OnEnable();
+
+   //     selectEntered.AddListener(NotchonBow.SetReady);
+   //     selectExited.AddListener(NotchonBow.SetReady);
+   // }
+
+   // protected override void OnDisable()
+   // {
+   //     base.OnDisable();
+   //     selectEntered.RemoveListener(NotchonBow.SetReady);
+   //     selectExited.RemoveListener(NotchonBow.setReady);
+   // }
+
 }
