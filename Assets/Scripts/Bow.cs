@@ -12,19 +12,19 @@ public class Bow : XRGrabInteractable
         NotchonBow = GetComponentInChildren<ArrowNotchpoint>();
     }
 
-   //protected override void  OnEnable()
-   // {
-   //     base.OnEnable();
+    protected override void OnEnable()
+    {
+        base.OnEnable();
 
-   //     selectEntered.AddListener(NotchonBow.SetReady);
-   //     selectExited.AddListener(NotchonBow.SetReady);
-   // }
+        selectEntered.AddListener(NotchonBow.SetReady);
+        selectExited.AddListener(NotchonBow.SetReady);
+    }
 
-   // protected override void OnDisable()
-   // {
-   //     base.OnDisable();
-   //     selectEntered.RemoveListener(NotchonBow.SetReady);
-   //     selectExited.RemoveListener(NotchonBow.setReady);
-   // }
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+        selectEntered.RemoveListener(NotchonBow.SetReady);
+        selectExited.RemoveListener(NotchonBow.SetReady);
+    }
 
 }

@@ -28,16 +28,17 @@ public class ArrowScript : XRGrabInteractable
         ArrowTip = gameObject.transform.Find("Tip");
     }
 
-    //protected override void OnSelectEntering(SelectEnterEventArgs args)
-    //{
-    //    //This being first allows us to get the right physics values
-    //    if (args.interactor is XRDirectInteractor)
-    //    {
-    //        Clear();
+    protected override void OnSelectEntering(SelectEnterEventArgs args)
+    {
+        //This being first allows us to get the right physics values
+        if (args.interactor is XRDirectInteractor)
+        {
+            Clear();
 
-    //    }
-    //    base.OnSelectEntering(args);
-    //}
+        }
+        base.OnSelectEntering(args);
+    }
+
     private void Clear()
     {
         SetLaunch(false);
@@ -57,18 +58,18 @@ public class ArrowScript : XRGrabInteractable
         rigidbody.useGravity = value;
     }
 
-    //protected override void OnSelectExited(SelectExitEventArgs args)
-    //{
-    //    base.OnSelectExited(args);
+    protected override void OnSelectExited(SelectExitEventArgs args)
+    {
+        base.OnSelectExited(args);
 
-    //    //if there is an arrow in the notch, launch the arrow
-    //    if (args.interactor is ArrowNotchpoint notch)
-    //    {
-    //        Launch(notch);
+        //if there is an arrow in the notch, launch the arrow
+        if (args.interactor is ArrowNotchpoint notch)
+        {
+            Launch(notch);
 
-    //    }
+        }
 
-    //}
+    }
 
     private void Launch(ArrowNotchpoint notch)
     {

@@ -27,32 +27,32 @@ public class ArrowNotchpoint : XRSocketInteractor
 
 
 
-    //protected override void OnEnable()
-    //{
-    //    base.OnEnable();
-    //    //when the puller is realsed, realse the arrow
-    //    StretchAmount.onSelectExited.AddListener(ReleaseArrow);
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        //when the puller is realsed, realse the arrow
+        StretchAmount.selectExited.AddListener(ReleaseArrow);
 
-    //    StretchAmount.Stretched.AddListener(MoveAttach);
+        StretchAmount.Stretched.AddListener(MoveAttach);
 
-    //}
+    }
 
-    //protected override void OnDisable()
-    //{
-    //    base.OnDisable();
-    //    StretchAmount.selectExited.RemoveListener(ReleaseArrow);
-    //    StretchAmount.Stretched.RemoveListener(MoveAttach);
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+        StretchAmount.selectExited.RemoveListener(ReleaseArrow);
+        StretchAmount.Stretched.RemoveListener(MoveAttach);
 
-    //}
+    }
 
-    //public void ReleaseArrow(SelectExitEventArgs args)
-    //{
-    //    //Only release the object if it is an arrow 
-    //    if (selectTarget is ArrowScript && StretchAmount.PullAmount > releaseAmountmax)
-    //    {
-    //        customManager.Deselect(this);
-    //    }
-    //}
+    public void ReleaseArrow(SelectExitEventArgs args)
+    {
+        //Only release the object if it is an arrow 
+        if (selectTarget is ArrowScript && StretchAmount.PullAmount > releaseAmountmax)
+        {
+            customManager.Deselect(this);
+        }
+    }
 
     public void MoveAttach(Vector3 stretchPosition, float stretchAmount)
     {
@@ -60,12 +60,11 @@ public class ArrowNotchpoint : XRSocketInteractor
         attachTransform.position = stretchPosition;
     }
 
-    //public void SetReady(BaseInteractionEventArgs args)
-    //{
-    //    //if the bow is picked up set the notch as ready
-    //    NotchIsReady = args.Interactable.isSelected;
-    //}
-
+    public void SetReady(BaseInteractionEventArgs args)
+    {
+        //if the bow is picked up set the notch as ready
+        NotchIsReady = args.interactable.isSelected;
+    }
     public override bool CanSelect(XRBaseInteractable interactable)
     {
 
