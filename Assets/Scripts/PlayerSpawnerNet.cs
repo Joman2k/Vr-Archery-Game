@@ -12,8 +12,6 @@ public class PlayerSpawnerNet : MonoBehaviourPunCallbacks
     {
         base.OnJoinedRoom();
         PlayerSpawnPrefab = PhotonNetwork.Instantiate("Network Player", transform.position, transform.rotation);
-
-
     }
 
     //when a player leaves it will destroy the player spawn prefab
@@ -22,7 +20,5 @@ public class PlayerSpawnerNet : MonoBehaviourPunCallbacks
 
         base.OnLeftRoom();
         PhotonNetwork.Destroy(PlayerSpawnPrefab);
-
-
     }
 }
