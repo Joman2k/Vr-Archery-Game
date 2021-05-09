@@ -22,24 +22,33 @@ public class stretchmesure : XRBaseInteractable
 
     private XRBaseInteractor StretchInteractor = null;
 
-    //protected override void OnSelectEntered(SelectEnterEventArgs args)
-    //{
-    //    base.OnSelectEntered(args);
 
-    //    // Set interactor for measurement
-    //    StretchInteractor = args.interactor;
-    //}
+    public void Start()
+    {
+        start = gameObject.transform.FindChild("Start");
+        end = gameObject.transform.FindChild("End");
 
-    //protected override void OnSelectExited(SelectExitEventArgs args)
-    //{
-    //    base.OnSelectExited(args);
 
-    //    //Clear the interactor and reset the pulled amount of the bow for the line-renderer
-    //    StretchInteractor = null;
+    }
 
-    //    //Reset everything with interaction
-    //    SetStrechValue(start.position, 0.0f);
-    //}
+    protected override void OnSelectEntered(SelectEnterEventArgs args)
+    {
+        base.OnSelectEntered(args);
+
+        // Set interactor for measurement
+        StretchInteractor = args.interactor;
+    }
+
+    protected override void OnSelectExited(SelectExitEventArgs args)
+    {
+        base.OnSelectExited(args);
+
+        //Clear the interactor and reset the pulled amount of the bow for the line-renderer
+        StretchInteractor = null;
+
+        //Reset everything with interaction
+        SetStrechValue(start.position, 0.0f);
+    }
 
     public override void ProcessInteractable(XRInteractionUpdateOrder.UpdatePhase updatePhase)
     {
