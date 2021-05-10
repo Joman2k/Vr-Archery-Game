@@ -5,7 +5,7 @@ using UnityEngine;
 [ExecuteInEditMode]
 [RequireComponent(typeof(LineRenderer))]
 
-public class StringRenderer : MonoBehaviour
+public class StringRendererScript : MonoBehaviour
 {
     public stretchmesure stretchAmount = null;
 
@@ -25,10 +25,10 @@ public class StringRenderer : MonoBehaviour
 
     private void Update()
     {
-        
-     
-            UpdatePositions();
-        
+
+
+        UpdatePositions();
+
     }
 
     private void UpdatePositions()

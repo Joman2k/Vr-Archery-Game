@@ -25,8 +25,9 @@ public class stretchmesure : XRBaseInteractable
 
     public void Start()
     {
-        start = gameObject.transform.FindChild("Start");
-        end = gameObject.transform.FindChild("End");
+        start = gameObject.transform.Find("Start");
+        end = gameObject.transform.Find("End");
+        Debug.Log($"start={start.name}, End={end.name}");
     }
 
     protected override void OnSelectEntered(SelectEnterEventArgs args)
@@ -45,7 +46,7 @@ public class stretchmesure : XRBaseInteractable
         StretchInteractor = null;
 
         //Reset everything with interaction
-        SetStrechValue(start.position, 0.0f);
+        SetStrechvalues(start.position, 0.0f);
     }
 
     public override void ProcessInteractable(XRInteractionUpdateOrder.UpdatePhase updatePhase)
@@ -57,23 +58,13 @@ public class stretchmesure : XRBaseInteractable
             //Update pull values when grabbed
             if(updatePhase == XRInteractionUpdateOrder.UpdatePhase.Dynamic)
             {
+                Debug.Log("The string is grabbed");
                 StrechCheck();
             }
 
         }
     }
 
-
-    private void SetStrechValue(Vector3 newStrechPosition, float newStrechAmount)
-    {
-        //if there is a new value in the strech value for the string
-        if (newStrechAmount != StretchAmount)
-        {
-            StretchAmount = newStrechAmount;
-            Stretched?.Invoke(newStrechPosition, newStrechAmount);
-        }
-
-    }
 
     private void StrechCheck()
     {
@@ -84,7 +75,8 @@ public class stretchmesure : XRBaseInteractable
         Vector3 newStrechPosition = calculatePosition(newStrechvalue);
 
 
-        SetStrechValue(newStrechPosition, newStrechvalue);
+        SetStrechvalues(newStrechPosition, newStrechvalue);
+        Debug.Log("StretchCheck");
 
     }
 

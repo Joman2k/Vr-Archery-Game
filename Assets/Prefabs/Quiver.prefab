@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 3186910362668991709}
   - component: {fileID: 3186910362668991708}
   - component: {fileID: 2721051168878235513}
-  - component: {fileID: 14353450853807456}
-  - component: {fileID: 8333494218296263131}
+  - component: {fileID: 2064481503967252073}
   m_Layer: 0
   m_Name: Quiver
   m_TagString: Untagged
@@ -63,7 +62,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &14353450853807456
+--- !u!114 &2064481503967252073
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -72,7 +71,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3186910362668991711}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13286a331207a214481ad6d696df5477, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e5f8d9f9b7680c4ea92da637174b928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
@@ -132,19 +131,5 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
-  arrowobject: {fileID: 0}
-  arrowGameObject: {fileID: 0}
---- !u!114 &8333494218296263131
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3186910362668991711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e659c9f39064d9244ba1ddcbb0fb776c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ArrowObject: {fileID: 9076930890933861440, guid: 5ae5248b31c8704499edcf82844e0e40,
+  arrowPrefab: {fileID: 9076930890933861440, guid: 5ae5248b31c8704499edcf82844e0e40,
     type: 3}

@@ -64,10 +64,11 @@ public class ArrowNotchpoint : XRSocketInteractor
     {
         //if the bow is picked up set the notch as ready
         NotchIsReady = args.interactable.isSelected;
+
     }
     public override bool CanSelect(XRBaseInteractable interactable)
     {
-
+        
         return base.CanSelect(interactable) && CanHover(interactable) && IsArrow(interactable);
     }
 

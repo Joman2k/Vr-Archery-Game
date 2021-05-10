@@ -8,23 +8,21 @@ public class PlayerSpawnerNet : MonoBehaviourPunCallbacks
     public Transform[] spawnLocationP1;
     public Transform[] spawnLocationP2;
 
-
+    
 
     //we want to spawn a player when someone uses the Join room function
   public override void OnJoinedRoom()
     {
+        //Get a random transform from the spawn location list
+        Transform P1Spawn = spawnLocationP1[Random.Range(0, spawnLocationP1.Length)];
+
+        Transform P2Spawn = spawnLocationP2[Random.Range(0, spawnLocationP2.Length)];
+
         base.OnJoinedRoom();
-        PlayerSpawnPrefab = PhotonNetwork.Instantiate("Network Player", transform.position, transform.rotation);
-
-        //Choose random spawn
-
-        //if there is already a player spawn on the player 2 list
-        //if()
-    //    {
-            
+        PlayerSpawnPrefab = PhotonNetwork.Instantiate("Network Player", P1Spawn.position, P1Spawn.rotation);
 
 
-       // }
+       
     }
 
     //when a player leaves it will destroy the player spawn prefab
