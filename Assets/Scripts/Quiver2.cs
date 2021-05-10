@@ -3,16 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class QuiverScript : XRBaseInteractable
+public class Quiver2 : XRBaseInteractable
 {
-    public GameObject arrowobject = null;
-
-    public ArrowPrefab arrowGameObject; 
-    void Start()
-    {
-        arrowGameObject = GetComponent<ArrowPrefab>();
-        arrowobject = arrowGameObject.ArrowObject;
-    }
+    public GameObject Arrow = null;
 
     protected override void OnEnable()
     {
@@ -36,8 +29,9 @@ public class QuiverScript : XRBaseInteractable
     private ArrowScript CreateArrow(Transform orientation)
     {
         //create the arrow
-        GameObject arrowObject = Instantiate(arrowobject, orientation.position, orientation.rotation);
-        Debug.Log("Arrow was created");
+        GameObject arrowObject = Instantiate(Arrow, orientation.position, orientation.rotation);
         return arrowObject.GetComponent<ArrowScript>();
+
     }
+
 }

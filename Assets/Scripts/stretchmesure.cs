@@ -27,8 +27,6 @@ public class stretchmesure : XRBaseInteractable
     {
         start = gameObject.transform.FindChild("Start");
         end = gameObject.transform.FindChild("End");
-
-
     }
 
     protected override void OnSelectEntered(SelectEnterEventArgs args)

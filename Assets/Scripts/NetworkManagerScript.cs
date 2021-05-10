@@ -33,7 +33,7 @@ public class NetworkManagerScript : MonoBehaviourPunCallbacks
         RoomOptions roomSettings = new RoomOptions();
         //max amount of players
         roomSettings.MaxPlayers = 2;
-        //Shows the room???
+        //Shows the room
         roomSettings.IsVisible = true;
         //Lets the player join the room even after it is created
         roomSettings.IsOpen = true;

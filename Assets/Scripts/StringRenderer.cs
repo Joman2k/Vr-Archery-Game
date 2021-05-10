@@ -25,11 +25,10 @@ public class StringRenderer : MonoBehaviour
 
     private void Update()
     {
-        //Line renderer will get its position updated when in editor and play mode 
-        if (Application.isEditor && !Application.isPlaying)
-        {
+        
+     
             UpdatePositions();
-        }
+        
     }
 
     private void UpdatePositions()
