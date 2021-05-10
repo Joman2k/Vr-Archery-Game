@@ -144,7 +144,7 @@ public class Arrow : XRGrabInteractable
 
     
 
-    //check if this is needed
+    
     private void CheckForHittable(RaycastHit hit)
     {
 
@@ -160,9 +160,9 @@ public class Arrow : XRGrabInteractable
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.gameObject.GetComponent<ShatteredBall>())
+        if (other.transform.gameObject.GetComponent<Headexplosion>())
         {
-            other.transform.gameObject.GetComponent<ShatteredBall>().ShatterBall();
+            other.transform.gameObject.GetComponent<Headexplosion>().ExplodeHead();
             return;
         }
     }
