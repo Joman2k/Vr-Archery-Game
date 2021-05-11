@@ -5,19 +5,21 @@ using Photon.Pun;
 public class PlayerSpawnerNet : MonoBehaviourPunCallbacks
 {
     private GameObject PlayerSpawnPrefab;
-    public Transform[] spawnLocationP1;
+    public Transform[] spawnLocation;
+    public GameObject XRrig;
     
+
     //we want to spawn a player when someone uses the Join room function
   public override void OnJoinedRoom()
     {
         //Get a random transform from the spawn location list
-        Transform P1Spawn = spawnLocationP1[Random.Range(0, spawnLocationP1.Length)];
+        Transform Spawn = spawnLocation[Random.Range(0, spawnLocation.Length)];
 
-        
+        XRrig.transform.SetPositionAndRotation(Spawn.position, Spawn.rotation);
 
         base.OnJoinedRoom();
         //spawn the player prefab using the random position that is listed below
-        PlayerSpawnPrefab = PhotonNetwork.Instantiate("Network Player", P1Spawn.position, P1Spawn.rotation);
+        PlayerSpawnPrefab = PhotonNetwork.Instantiate("Network Player", Spawn.position, Spawn.rotation);
     }
 
     //when a player leaves it will destroy the player spawn prefab
