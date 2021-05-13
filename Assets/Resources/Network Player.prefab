@@ -212,6 +212,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3674618217279427699}
   - component: {fileID: 5758607473535580180}
+  - component: {fileID: 4278543140341640077}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -250,6 +251,21 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &4278543140341640077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6602608881154905153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73c2769b40548654e925338e0d98846a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HeadshatteredPrefab: {fileID: 2935364388099278638, guid: af49d2b3d086ee045908ed1b9ccf29cb,
+    type: 3}
+  Loser: {fileID: 0}
 --- !u!1 &8795236812898232278
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,6 +27,7 @@ public class Arrow : XRGrabInteractable
         rigidbody = GetComponent<Rigidbody>();
         //ArrowTip = GetComponentInChildren <GameObject.FindGameObjectsWithTag> ();
         Tip = gameObject.transform.Find("Tip");
+        gameObject.GetComponent<SphereCollider>().enabled = !gameObject.GetComponent<SphereCollider>().enabled;
 
     }
 
@@ -58,12 +59,15 @@ public class Arrow : XRGrabInteractable
 
     private void Launch(Notch notch)
     {
-        // Checking if the bow is dropped with an arrow in it
+        // Check if the notch is ready to fire
         if (notch.IsReady)
         {
             SetLaunch(true);
             UpdateLastPosition();
             ApplyForce(notch.PullAmount);
+            //Turns on sphere collider
+            gameObject.GetComponent<SphereCollider>().enabled = !gameObject.GetComponent<SphereCollider>().enabled;
+
         }
     }
 
@@ -162,6 +166,7 @@ public class Arrow : XRGrabInteractable
     {
         if (other.transform.gameObject.GetComponent<Headexplosion>())
         {
+            
             other.transform.gameObject.GetComponent<Headexplosion>().ExplodeHead();
             return;
         }
