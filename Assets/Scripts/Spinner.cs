@@ -7,7 +7,7 @@ public class Spinner : MonoBehaviour
     void Update()
     {
         //spins object constantly on the Z axis
-        transform.Rotate(0, 0, 25 * Time.deltaTime);
+        transform.Rotate(0, 1, 0 * Time.deltaTime);
 
     }
 }

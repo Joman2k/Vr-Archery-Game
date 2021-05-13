@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using System;
 
 public class Arrow : XRGrabInteractable
 {
@@ -9,7 +10,7 @@ public class Arrow : XRGrabInteractable
     [Header("Hit")]
     public Transform Tip = null;
     public LayerMask layerMask = ~Physics.IgnoreRaycastLayer;
-
+    
     private new Rigidbody rigidbody = null;
     private new Collider collider = null;
    
@@ -27,6 +28,8 @@ public class Arrow : XRGrabInteractable
         rigidbody = GetComponent<Rigidbody>();
         //ArrowTip = GetComponentInChildren <GameObject.FindGameObjectsWithTag> ();
         Tip = gameObject.transform.Find("Tip");
+
+        Debug.Log($"Tip = {Tip.gameObject.name}");
         gameObject.GetComponent<SphereCollider>().enabled = !gameObject.GetComponent<SphereCollider>().enabled;
 
     }

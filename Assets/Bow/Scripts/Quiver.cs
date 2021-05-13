@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using Photon.Pun;
 
 public class Quiver : XRBaseInteractable
 {
-    public GameObject arrowPrefab = null;
+  //  public GameObject arrowPrefab = null;
 
     protected override void OnEnable()
     {
@@ -27,8 +28,10 @@ public class Quiver : XRBaseInteractable
 
     private Arrow CreateArrow(Transform orientation)
     {
+        Debug.Log($"We're spawning an arrow like a cool guy");
+
         // Create arrow, and get arrow component
-        GameObject arrowObject = Instantiate(arrowPrefab, orientation.position, orientation.rotation);
+        GameObject arrowObject = PhotonNetwork.Instantiate("Arrow (1)", orientation.position, orientation.rotation);
         return arrowObject.GetComponent<Arrow>();
     }
 }

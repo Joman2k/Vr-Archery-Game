@@ -9,6 +9,8 @@ public class RoundManager1 : MonoBehaviour
 
     void Start()
     {
+        WinnerUI.SetActive(false);
+        LoserUI.SetActive(false);
 
 
     }
@@ -26,7 +28,7 @@ public class RoundManager1 : MonoBehaviour
     public void LoserUi()
     {
 
-
+        LoserUI.SetActive(true);
 
     }
 }
