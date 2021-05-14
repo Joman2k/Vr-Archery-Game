@@ -266,6 +266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HeadshatteredPrefab: {fileID: 2935364388099278638, guid: af49d2b3d086ee045908ed1b9ccf29cb,
     type: 3}
+  roundmanager: {fileID: 0}
 --- !u!135 &8538265378187756131
 SphereCollider:
   m_ObjectHideFlags: 0

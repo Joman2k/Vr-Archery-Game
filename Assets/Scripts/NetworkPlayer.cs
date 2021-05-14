@@ -27,6 +27,7 @@ public class NetworkPlayer : MonoBehaviour
         headRig = rig.transform.Find("Camera Offset/VR camera");
         leftHandRig = rig.transform.Find("Camera Offset/Left hand");
         rightHandRig = rig.transform.Find("Camera Offset/Right hand");
+        
     }
 
     // Update is called once per frame

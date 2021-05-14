@@ -18,7 +18,8 @@ public class Arrow : XRGrabInteractable
     private Vector3 lastPosition = Vector3.zero;
     private bool launched = false;
 
-    
+    public bool Collided;
+
 
 
     protected override void Awake()
@@ -70,6 +71,8 @@ public class Arrow : XRGrabInteractable
             ApplyForce(notch.PullAmount);
             //Turns on sphere collider
             gameObject.GetComponent<SphereCollider>().enabled = !gameObject.GetComponent<SphereCollider>().enabled;
+
+            FindObjectOfType<AudioManager>().Play("FireBow");
 
         }
     }
@@ -167,10 +170,12 @@ public class Arrow : XRGrabInteractable
 
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.transform.gameObject.GetComponent<Headexplosion>())
         {
-            
+            Collided = true;
             other.transform.gameObject.GetComponent<Headexplosion>().ExplodeHead();
+
             return;
         }
     }
