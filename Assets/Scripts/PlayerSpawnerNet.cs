@@ -7,7 +7,10 @@ public class PlayerSpawnerNet : MonoBehaviourPunCallbacks
     private GameObject PlayerSpawnPrefab;
     public Transform[] spawnLocation;
     public GameObject XRrig;
-    
+
+    public RoundManager1 roundManager;
+
+
 
     //we want to spawn a player when someone uses the Join room function
   public override void OnJoinedRoom()
@@ -20,6 +23,7 @@ public class PlayerSpawnerNet : MonoBehaviourPunCallbacks
         base.OnJoinedRoom();
         //spawn the player prefab using the random position that is listed below
         PlayerSpawnPrefab = PhotonNetwork.Instantiate("Network Player", Spawn.position, Spawn.rotation);
+        roundManager.NetworkHead = PlayerSpawnPrefab.GetComponent<NetworkPlayerRefrence>().HeadChild;
     }
 
     //when a player leaves it will destroy the player spawn prefab

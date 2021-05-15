@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4787414807358872576}
   - component: {fileID: -2103385155853430641}
   - component: {fileID: 782463432555776204}
+  - component: {fileID: 5973500067673070513}
   m_Layer: 0
   m_Name: Network Player
   m_TagString: Untagged
@@ -75,6 +76,19 @@ MonoBehaviour:
   head: {fileID: 3674618217279427699}
   leftHand: {fileID: 7277055778161836725}
   rightHand: {fileID: 4169796876857522775}
+--- !u!114 &5973500067673070513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958088788473505294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acec4babcdc5f664cb468630d79d3c73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HeadChild: {fileID: 6602608881154905153}
 --- !u!1 &2820859213022224156
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,7 +292,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.4
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8795236812898232278
 GameObject:

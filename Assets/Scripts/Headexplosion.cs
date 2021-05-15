@@ -26,7 +26,7 @@ public class Headexplosion : MonoBehaviour
         explodedhead.transform.position = transform.position;
        // Loser.LoserUi();
         Debug.Log("Head hit");
-        roundmanager.PlayerHead = this.gameObject;
+        //roundmanager.PlayerHead = this.gameObject;
 
         roundmanager.EndGame();
 

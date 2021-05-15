@@ -18,7 +18,9 @@ public class Arrow : XRGrabInteractable
     private Vector3 lastPosition = Vector3.zero;
     private bool launched = false;
 
-    public bool Collided;
+    
+
+    public RoundManager1 roundManager;
 
 
 
@@ -32,7 +34,7 @@ public class Arrow : XRGrabInteractable
 
         Debug.Log($"Tip = {Tip.gameObject.name}");
         gameObject.GetComponent<SphereCollider>().enabled = !gameObject.GetComponent<SphereCollider>().enabled;
-
+        roundManager = GameObject.Find("RoundManager").GetComponent<RoundManager1>();
     }
 
     protected override void OnSelectEntering(SelectEnterEventArgs args)
@@ -173,7 +175,8 @@ public class Arrow : XRGrabInteractable
 
         if (other.transform.gameObject.GetComponent<Headexplosion>())
         {
-            Collided = true;
+            roundManager.collided =  other.gameObject.name;
+
             other.transform.gameObject.GetComponent<Headexplosion>().ExplodeHead();
 
             return;

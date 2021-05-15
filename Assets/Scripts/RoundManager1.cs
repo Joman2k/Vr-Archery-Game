@@ -12,9 +12,7 @@ public class RoundManager1 : MonoBehaviour
     public GameObject PlayerHead;
     public GameObject NetworkHead;
 
-    public Arrow ArrowScript;
-
-   
+    public string collided;
 
     void Awake()
     {
@@ -42,7 +40,30 @@ public class RoundManager1 : MonoBehaviour
     {
         Debug.Log("Game has ended");
         // If either head explodes call this function
-        if(PlayerHead == null && NetworkHead != null)
+        //If the collided object has the same name as the varable then make it null
+        if(PlayerHead != null && collided == PlayerHead.name)
+        {
+            PlayerHead = null;
+
+        }
+        //If the collided object has the same name as the varable then make it null
+        if (NetworkHead != null && collided == NetworkHead.name)
+        {
+            NetworkHead = null;
+
+        }
+        if(PlayerHead == null)
+        {
+            Debug.Log("PLayers head destroyed");
+
+
+        }
+        if (NetworkHead == null)
+        {
+            Debug.Log("Network head is destoryed");
+
+        }
+        if(PlayerHead != null && NetworkHead == null)
         {
             Debug.Log("You win!");
 
@@ -51,7 +72,7 @@ public class RoundManager1 : MonoBehaviour
         }
         // This script will then check both player see if they have their head and assigns them the correct winner/loers UI
 
-        if (PlayerHead != null && PlayerHead.name == "LocalHead")
+        if (PlayerHead == null && NetworkHead != null)
         {
             Debug.Log("You lost");
             LoserUI.SetActive(true);
