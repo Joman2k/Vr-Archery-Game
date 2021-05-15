@@ -28,7 +28,7 @@ public class Headexplosion : MonoBehaviour
         Debug.Log("Head hit");
         //roundmanager.PlayerHead = this.gameObject;
 
-        roundmanager.EndGame();
+        roundmanager.EndGame(GetComponentInParent<NetworkPlayer>());
 
         // RoundManager1.instance.EndGame();
         Destroy(gameObject);

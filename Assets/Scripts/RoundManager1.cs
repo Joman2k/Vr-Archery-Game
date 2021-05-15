@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.SceneManagement;
 
-public class RoundManager1 : MonoBehaviour
+public class RoundManager1 : MonoBehaviourPunCallbacks
 {
     public static RoundManager1 instance;
     public GameObject WinnerUI;
@@ -13,6 +14,9 @@ public class RoundManager1 : MonoBehaviour
     public GameObject NetworkHead;
 
     public string collided;
+
+    public List<NetworkPlayer> netPlayers;
+
 
     void Awake()
     {
@@ -24,7 +28,7 @@ public class RoundManager1 : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
+  
     }
            
     void Start()
@@ -36,8 +40,23 @@ public class RoundManager1 : MonoBehaviour
         
     }
 
-    public void EndGame()
+    public void EndGame(NetworkPlayer winner)
     {
+        //Checking for each player, I increases with each pass
+        for (int i = 0; i < netPlayers.Count; i++)
+        {
+            if (netPlayers[i] == winner)
+            {
+                WinnerUI.SetActive(true);
+            }
+            else
+            {
+                LoserUI.SetActive(false);
+            }
+        }
+
+        StartCoroutine(RestartGame());
+
         Debug.Log("Game has ended");
         // If either head explodes call this function
         //If the collided object has the same name as the varable then make it null
@@ -80,5 +99,19 @@ public class RoundManager1 : MonoBehaviour
 
     }
 
-    
+    IEnumerator RestartGame()
+    {
+        //wait 10 seconds after the game has ended
+        yield return new WaitForSeconds(10);
+        //Get the current scenes name
+        Scene scene = SceneManager.GetActiveScene();
+        //Load the current scene from its name 
+        SceneManager.LoadScene(scene.name);
+
+        //obsolete
+        // Application.LoadLevel(Application.loadedLevel);
+        // Put scene load here
+    }
+
+
 }
